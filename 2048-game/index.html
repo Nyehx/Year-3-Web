@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" type="module"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="score-container">Score: <span id="score">0</span></div>
+        <button id="undo-btn">Undo</button>
+        <button id="restart-btn">Restart</button>
+    </div>
+    <div class="board-game"></div>
+        <!-- Game Over Modal (hidden by default) -->
+    <div id="game-over-overlay" class="game-over-overlay hidden" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="game-over-modal" role="document">
+        <h2 id="game-over-title">Игра окончена</h2>
+
+        <div id="game-over-message" class="game-over-message">
+        <p>Ваш счёт: <strong id="game-over-score">0</strong></p>
+        <p id="saved-confirmation" class="saved-confirmation hidden">Ваш рекорд сохранён.</p>
+        </div>
+
+        <form id="save-score-form" class="save-score-form" autocomplete="off">
+        <label for="player-name">Введите имя:</label>
+        <input id="player-name" name="player-name" type="text" maxlength="30" placeholder="Ваше имя" required />
+        <div class="modal-actions">
+            <button type="submit" id="save-score-btn">Сохранить результат</button>
+            <button type="button" id="modal-restart-btn">Начать заново</button>
+        </div>
+        </form>
+
+        <div class="modal-footer">
+        <button id="modal-close-btn" type="button" aria-label="Закрыть">Закрыть</button>
+        </div>
+    </div>
+    </div>
+        <!-- Mobile arrow controls (only visible on small screens) -->
+    <nav class="mobile-controls" aria-label="Mobile game controls">
+    <button class="mobile-btn up" data-key="ArrowUp" aria-label="Up">▲</button>
+    <div class="mobile-row">
+        <button class="mobile-btn left" data-key="ArrowLeft" aria-label="Left">◀</button>
+        <button class="mobile-btn right" data-key="ArrowRight" aria-label="Right">▶</button>
+    </div>
+    <button class="mobile-btn down" data-key="ArrowDown" aria-label="Down">▼</button>
+    </nav>
+
+        <!-- Collapsible Leaderboard -->
+    <div class="leaderboard-container">
+        <button id="leaderboard-toggle" class="leaderboard-toggle">
+            Leaderboard ▼
+        </button>
+
+        <div id="leaderboard-panel" class="leaderboard-panel hidden">
+            <ul id="high-scores-list"></ul>
+        </div>
+    </div>
+
+</body>
+</html>
